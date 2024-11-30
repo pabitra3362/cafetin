@@ -34,9 +34,9 @@ const Navbar = () => {
             <li><NavLink to={'/'}
               className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
             >Home</NavLink></li>
-            <li><NavLink to={'/order'}
+            <li><NavLink to={'/menu'}
               className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
-            >Orders</NavLink></li>
+            >Menu</NavLink></li>
             <li><NavLink to={'/about'}
               className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
             >About</NavLink></li>
@@ -77,7 +77,7 @@ const Navbar = () => {
 
       {/* mobile */}
 
-      <nav className='bg-black py-4 flex md:hidden lg:hidden justify-between items-center px-4'>
+      <nav className='bg-black py-4 flex md:hidden lg:hidden justify-between items-center px-4 '>
 
         {/* left */}
         <div className='flex justify-center items-center gap-3'>

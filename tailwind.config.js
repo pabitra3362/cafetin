@@ -11,6 +11,9 @@ export default {
     extend: {
       colors:{
         "custom-brown":"#e59e2b",
+      },
+      fontFamily:{
+        cursive: ["Pacifico","cursive"]
       }
     },
   },

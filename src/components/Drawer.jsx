@@ -19,7 +19,7 @@ export function MyDrawer() {
 
     const Menu = [
         { name: "Home", link: "/" },
-        { name: "Orders", link: "/order" },
+        { name: "Menu", link: "/menu" },
         { name: "About", link: "/about" },
         { name: "Contact Us", link: "/contact" }
     ]
