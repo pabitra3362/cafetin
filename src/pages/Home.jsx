@@ -10,7 +10,7 @@ const Home = () => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    height: "60vh",
+    height: "70vh",
     width: "100vw",
   };
 
@@ -25,8 +25,8 @@ const Home = () => {
       </div>
 
       <div className="footer mt-6" style={bgimage}>
-        <div className="w-full h-[60vh] md:w-[80vw] lg:w-[80vw] justify-center md:justify-start items-center mx-auto px-3">
-          <div className="bg-transparent backdrop-blur-lg rounded-lg w-80 h-[50vh] p-2 grid justify-items-center gap-2 items-center border border-white shadow-current shadow-lg">
+        <div className="w-full h-[70vh] md:w-[80vw] lg:w-[80vw] justify-center md:justify-start items-center mx-auto px-3">
+          <div className="bg-transparent backdrop-blur-lg rounded-lg w-80 h-[60vh] p-2 grid justify-items-center gap-2 items-center border border-white shadow-current shadow-lg">
             <motion.div className="font-cursive text-7xl text-custom-brown fading">
               cafelin
             </motion.div>
