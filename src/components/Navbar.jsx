@@ -11,10 +11,10 @@ const Navbar = () => {
 
   const { user, loginWithRedirect, logout, isAuthenticated }=useAuth0()
   return (
-    <div>
+    <div id='top'>
 
       {/* pc */}
-      <nav className=' hidden md:flex lg:flex justify-around items-center bg-black text-white py-4 text-lg font-serif '>
+      <nav className=' hidden md:flex lg:flex justify-around items-center bg-slate-900 text-white py-4 text-lg font-serif '>
 
         {/* left */}
         <div className='logo flex justify-center items-center lg:gap-6 md:gap-3'>
@@ -77,7 +77,7 @@ const Navbar = () => {
 
       {/* mobile */}
 
-      <nav className='bg-black py-4 flex md:hidden lg:hidden justify-between items-center px-4 '>
+      <nav className='bg-slate-900 py-4 flex md:hidden lg:hidden justify-between items-center px-4 '>
 
         {/* left */}
         <div className='flex justify-center items-center gap-3'>

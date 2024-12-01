@@ -1,5 +1,19 @@
 import React, { useState } from "react";
-import { categories, coffee } from "../assets/asset";
+import {
+  asset,
+  categories,
+  Coffee,
+  Tea,
+  Fries,
+  Momos,
+  Frankies,
+  Sandwich,
+  Pizza,
+  Burger,
+  Rolls,
+  Maggies,
+  Drinks,
+} from "../assets/asset";
 import DishCard from "./DishCard";
 
 const Menus = () => {
@@ -7,8 +21,29 @@ const Menus = () => {
 
   const categoryMap = {
     categories,
-    coffee,
+    Coffee,
+    Tea,
+    Fries,
+    Momos,
+    Frankies,
+    Sandwich,
+    Pizza,
+    Burger,
+    Rolls,
+    Maggies,
+    Drinks,
   };
+
+  const handleCategory = (item) => {
+    setCategory((prev) => {
+      if (prev === item.title) {
+        return "";
+      } else {
+        return item.title;
+      }
+    });
+  };
+
   return (
     <div className="w-80 md:w-[80vw] mx-auto">
       <h2 className="font-bold text-lg my-3">Explore Our Menu</h2>
@@ -28,7 +63,7 @@ const Menus = () => {
           {categories.map((item, index) => (
             <div
               key={index}
-              onClick={() => setCategory(item.title)}
+              onClick={() => handleCategory(item)}
               className=" grid items-center justify-center gap-3"
             >
               <div
@@ -51,6 +86,17 @@ const Menus = () => {
       <p className="font-bold text-lg my-3 px-3">Top Dishes For You</p>
       {/* dishes */}
       <div className="grid w-full md:w-[80vw] lg:w-[80vw]  mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-y-10 my-5">
+        {category === "" &&
+          asset.map((item, index) => (
+            <DishCard
+              key={index}
+              image={item.src}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+            />
+          ))}
+
         {categoryMap[category] &&
           categoryMap[category].map((item, index) => (
             <DishCard
