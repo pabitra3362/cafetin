@@ -46,7 +46,7 @@ const Footer = () => {
 
       <div className="w-screen border border-white opacity-35 h-[1px]"></div>
 
-      <div className="rights w-full md:w-[80vw] lg:w-[80vw] grid md:flex md:flex-row-reverse justify-start justify-items-center md:justify-between gap-5 px-3 mx-auto">
+      <div className="rights w-full md:w-[80vw] lg:w-[80vw] grid md:flex md:flex-row-reverse  justify-items-center md:justify-between gap-5 px-3 mx-auto">
         <div>
           <a
             href="#top"

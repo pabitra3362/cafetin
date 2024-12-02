@@ -5,7 +5,7 @@ import { motion } from 'motion/react'
 const Hero = () => {
   return (
     <motion.div 
-    whileInView={{
+    animate={{
       opacity:[0,0.5,1],
       y:[-100,0,0],
       transition:{duration:2}
@@ -13,7 +13,7 @@ const Hero = () => {
     className='w-80 md:w-[80vw] lg:w-[80vw] rounded-lg mx-auto my-5 relative'>
       <img className='rounded-lg brightness-75 lg:h-[50vh] w-full' src={coffee} alt="hero-coffee" />
       <motion.div 
-        whileInView={{
+        animate={{
           opacity:[0,0.5,1],
           x:[50,0],
           transition:{duration:1,delay:1}

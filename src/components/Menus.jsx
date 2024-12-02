@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  asset,
+  random,
   categories,
   Coffee,
   Tea,
@@ -87,7 +87,7 @@ const Menus = () => {
       {/* dishes */}
       <div className="grid w-full md:w-[80vw] lg:w-[80vw]  mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-y-10 my-5">
         {category === "" &&
-          asset.map((item, index) => (
+          random.map((item, index) => (
             <DishCard
               key={index}
               image={item.src}
