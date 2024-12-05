@@ -21,6 +21,7 @@ export function MyDrawer() {
         { name: "Home", link: "/" },
         { name: "Menu", link: "/menu" },
         { name: "About", link: "/about" },
+        { name: "Cart", link: "/cart" },
         { name: "Contact Us", link: "/contact" }
     ]
 

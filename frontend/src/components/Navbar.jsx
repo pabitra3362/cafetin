@@ -49,7 +49,7 @@ const Navbar = () => {
         {/* right */}
         <div className=' flex justify-center items-center lg:gap-6 md:gap-3'>
           <div className="indicator">
-            <span className="indicator-item badge badge-primary">0</span>
+            {/* <span className="indicator-item badge badge-primary">0</span> */}
             <NavLink
               to={'/cart'}
             >

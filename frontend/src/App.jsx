@@ -6,6 +6,7 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Cart from "./pages/Cart"
 import Menu from "./pages/Menu"
+import Payment from "./pages/Payment"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path='/payment' element={<Payment />} />
         </Routes>
         <Footer />
       </Router>

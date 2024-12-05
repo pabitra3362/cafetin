@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 const cartSchema = new mongoose.Schema({
-  img: {
+  image: {
     type: String,
     require: true,
   },
@@ -20,6 +20,10 @@ const cartSchema = new mongoose.Schema({
   user: {
     type: String,
     require: true,
+  },
+  quantity:{
+    type:Number,
+    require:true,
   },
 });
 

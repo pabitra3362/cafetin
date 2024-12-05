@@ -13,9 +13,8 @@ const DishCard = ({image,title,description,price}) => {
   const handleCart=async() => {
     if(!isAuthenticated) toast.error("Please log in first.")
     try {
-      const res=await axios.post('/api/addToCart',{image,title,description,price,user:user.email})
+      const res=await axios.post('/api/addToCart',{image,title,description,price,user:user.email,quantity:1})
       const data= await res.data;
-      console.log(data);
       
       if(data.status===201){
         toast.success(data.message)
