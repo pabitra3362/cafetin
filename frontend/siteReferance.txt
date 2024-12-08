@@ -10,3 +10,6 @@ https://www.youtube.com/watch?v=Buk_INwW0vQ
 
 20:26
 
+
+w-80 md:w-96 lg:w-[40vw] md:h-[45vh] lg:h-[45vh]
+w-80 md:w-[75vw] lg:w-[50vw] md:h-[45vh]

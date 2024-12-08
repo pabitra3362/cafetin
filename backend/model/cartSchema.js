@@ -21,9 +21,9 @@ const cartSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  quantity:{
-    type:Number,
-    require:true,
+  quantity: {
+    type: Number,
+    require: true,
   },
 });
 
