@@ -15,7 +15,7 @@ const Cart = () => {
     return async () => {
       try {
         if (isAuthenticated) {
-          const response = await axios.post("/api/listCartItem", {
+          const response = await axios.post("/api/cart/listCartItem", {
             user: user.email,
           });
           const data = await response.data;

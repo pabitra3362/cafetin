@@ -1,4 +1,4 @@
-const mongoose=require('mongoose')
+import mongoose from "mongoose";
 
 const cartSchema = new mongoose.Schema({
   image: {
@@ -28,4 +28,4 @@ const cartSchema = new mongoose.Schema({
 });
 
 const cart = mongoose.model("cart", cartSchema);
-module.exports = cart;
+export default cart;
