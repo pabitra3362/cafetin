@@ -18,8 +18,10 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+// Route for cart apis
 app.use('/api/cart',cart)
 
+// Route for payment apis
 app.use('/api/payment',payment)
 
 // Start the server
