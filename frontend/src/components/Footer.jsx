@@ -15,7 +15,7 @@ const Footer = () => {
           </div>
           <div className="title font-bold text-lg">Address</div>
           <div className="desc w-44">
-            G - 145, Happy Golmine Shopper, Nr. Safal Sqaure, Vesu, Surat, 395007
+            G - 145, Happy Goldmine Shopper, Nr. Safal Sqaure, Vesu, Surat, 395007
           </div>
         </div>
         <div className="email grid justify-start items-center gap-3">
