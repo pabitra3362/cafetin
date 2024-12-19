@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, { model } from 'mongoose'
 
-const cartSchema = new mongoose.Schema({
+const { Schema }=mongoose;
+
+const cartSchema = new Schema({
   image: {
     type: String,
     require: true,
@@ -27,5 +29,5 @@ const cartSchema = new mongoose.Schema({
   },
 });
 
-const cart = mongoose.model("cart", cartSchema);
-export default cart;
+export default model("cart", cartSchema);
+
