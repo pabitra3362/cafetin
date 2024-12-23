@@ -582,50 +582,50 @@ export const Drinks = [
   {
     "src": sprite,
     "title": "Sprite",
-    "description": "A refreshing lemon-lime soda that’s crisp and bubbly, perfect for quenching your thirst on a hot day.",
-    "price": 99
+    "description": "A refreshing lemon-lime soda that's crisp and bubbly, perfect for quenching your thirst on a hot day.",
+    "price": 40
   },
   {
     "src": sting,
     "title": "Sting",
     "description": "A strong energy drink with a sweet and tangy flavor, giving you a quick boost of energy and refreshment.",
-    "price": 120
+    "price": 20
   },
   {
     "src": Cdrinks,
     "title": "Coca Cola",
     "description": "A classic carbonated cola drink that’s sweet, fizzy, and refreshing, making it the perfect companion for any meal.",
-    "price": 110
+    "price": 40
   },
   {
     "src": redBull,
     "title": "Red Bull",
     "description": "An energy drink that combines caffeine, taurine, and B-vitamins to give you an instant energy boost and enhance focus.",
-    "price": 150
+    "price": 125
   },
   {
     "src": frooti,
     "title": "Frooti",
     "description": "A sweet and refreshing mango drink made from real mango pulp, offering a tropical flavor that’s both tangy and sweet.",
-    "price": 70
+    "price": 40
   },
   {
     "src": waterBottle,
     "title": "Water Bottle",
     "description": "A simple and essential bottle of fresh, pure water to keep you hydrated throughout the day.",
-    "price": 30
+    "price": 20
   },
   {
     "src": thumbsUp,
     "title": "Thumbs Up",
     "description": "A bold and fizzy cola drink with a distinct flavor that packs a punch, ideal for those who enjoy strong, carbonated drinks.",
-    "price": 100
+    "price": 40
   },
   {
     "src": pepsi,
     "title": "Pepsi",
     "description": "A popular carbonated cola drink known for its crisp, refreshing taste and slightly sweeter flavor compared to other cola drinks.",
-    "price": 110
+    "price": 40
   }
 ];
 
@@ -732,7 +732,7 @@ export const random=[
     "src": thumbsUp,
     "title": "Thumbs Up",
     "description": "A bold and fizzy cola drink with a distinct flavor that packs a punch, ideal for those who enjoy strong, carbonated drinks.",
-    "price": 100
+    "price": 40
   },
 
 ];
@@ -1139,49 +1139,49 @@ export const All=[
     "src": sprite,
     "title": "Sprite",
     "description": "A refreshing lemon-lime soda that’s crisp and bubbly, perfect for quenching your thirst on a hot day.",
-    "price": 99
+    "price": 40
   },
   {
     "src": sting,
     "title": "Sting",
     "description": "A strong energy drink with a sweet and tangy flavor, giving you a quick boost of energy and refreshment.",
-    "price": 120
+    "price": 20
   },
   {
     "src": Cdrinks,
     "title": "Coca Cola",
     "description": "A classic carbonated cola drink that’s sweet, fizzy, and refreshing, making it the perfect companion for any meal.",
-    "price": 110
+    "price": 40
   },
   {
     "src": redBull,
     "title": "Red Bull",
     "description": "An energy drink that combines caffeine, taurine, and B-vitamins to give you an instant energy boost and enhance focus.",
-    "price": 150
+    "price": 125
   },
   {
     "src": frooti,
     "title": "Frooti",
     "description": "A sweet and refreshing mango drink made from real mango pulp, offering a tropical flavor that’s both tangy and sweet.",
-    "price": 70
+    "price": 40
   },
   {
     "src": waterBottle,
     "title": "Water Bottle",
     "description": "A simple and essential bottle of fresh, pure water to keep you hydrated throughout the day.",
-    "price": 30
+    "price": 20
   },
   {
     "src": thumbsUp,
     "title": "Thumbs Up",
     "description": "A bold and fizzy cola drink with a distinct flavor that packs a punch, ideal for those who enjoy strong, carbonated drinks.",
-    "price": 100
+    "price": 40
   },
   {
     "src": pepsi,
     "title": "Pepsi",
     "description": "A popular carbonated cola drink known for its crisp, refreshing taste and slightly sweeter flavor compared to other cola drinks.",
-    "price": 110
+    "price": 40
   },
 
 ]

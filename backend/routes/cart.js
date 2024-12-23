@@ -36,7 +36,6 @@ router.post("/listCartItem", async (req, res) => {
       return res.status(201).json({ message: result, status: 201 });
     } else {
       return res
-        .status(400)
         .json({ message: `dont'have anything for ${data.user}`, status: 400 });
     }
   } catch (error) {
@@ -79,3 +78,20 @@ router.delete("/deleteCart", async (req, res) => {
 });
 
 export default router;
+
+//DELETE route to delete all carts
+router.delete('/deleteAllCart',async(req,res)=>{
+  const data=await req.body;
+  
+  try {
+    const result=await Cart.deleteMany({user:data.user})
+    if(result.deletedCount>0){
+      res.status(201).json({message:"All carts deleted",status:201})
+    }else{
+      res.status(400).json({message:"Failed to delete all carts",status:400})
+    }
+  } catch (error) {
+    console.error("error in /deleteAllCart",error.message)
+    res.status(500).json({message:"Internal server error",status:500})
+  }
+})

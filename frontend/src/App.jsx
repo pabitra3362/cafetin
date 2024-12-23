@@ -6,7 +6,8 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Cart from "./pages/Cart"
 import Menu from "./pages/Menu"
-import Payment from "./pages/Payment"
+import Orders from "./pages/Orders"
+import Admin from "./pages/Admin"
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path='/payment' element={<Payment />} />
+          <Route path='/orders' element={<Orders />} />
+          <Route path='/admin' element={<Admin />} />
         </Routes>
         <Footer />
       </Router>

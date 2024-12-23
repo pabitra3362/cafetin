@@ -10,6 +10,7 @@ const Navbar = () => {
 
 
   const { user, loginWithRedirect, logout, isAuthenticated }=useAuth0()
+
   return (
     <div id='top'>
 
@@ -37,12 +38,21 @@ const Navbar = () => {
             <li><NavLink to={'/menu'}
               className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
             >Menu</NavLink></li>
+            <li><NavLink to={'/orders'}
+              className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
+            >Orders</NavLink></li>
             <li><NavLink to={'/about'}
               className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
             >About</NavLink></li>
             <li><NavLink to={'/contact'}
               className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
             >Contact Us</NavLink></li>
+            {
+              isAuthenticated && user.email === 'cafelin24@gmail.com' &&
+              <li><NavLink to={'/admin'}
+              className={(e) => (` hover:text-custom-brown transition duration-200 ${e.isActive ? "text-[#e59e2b]" : ""}`)}
+            >Admin</NavLink></li>
+            }
           </ul>
         </div>
 

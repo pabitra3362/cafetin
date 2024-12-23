@@ -22,7 +22,7 @@ const Contact = () => {
     const onSubmit = async (data, e) => {
         const formData = new FormData(e.target);
 
-        formData.append("access_key", "7c8cb446-ff39-47d0-99fa-9c3d6bdfafd1");
+        formData.append("access_key", "8003a349-18c7-4239-841b-3d1d23f5c6b4");
 
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
@@ -71,7 +71,7 @@ const Contact = () => {
         <div className="map">
           <iframe
             className="w-80 h-[70vh] md:h-96 lg:w-[45vw] lg:h-[65vh] rounded-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.2089550792007!2d72.76014137597905!3d21.144081083806345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0527f30051741%3A0x833c8f80320acf47!2sHappy%20Goldmines%20Shoppers!5e0!3m2!1sen!2sin!4v1733740216192!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.217520428594!2d72.75985027597909!3d21.14374008381806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be051e0cd0f330d%3A0x1ce217b05c0fc420!2sCafelin!5e0!3m2!1sen!2sin!4v1734966562358!5m2!1sen!2sin"
             style={{ border: 0 }}
             allowfullscreen=""
             loading="lazy"

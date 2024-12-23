@@ -11,8 +11,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <Auth0Provider
-    domain={config.domain}
-    clientId={config.clientId}
+    domain={config.authDomain}
+    clientId={config.authClientId}
     authorizationParams={{ redirect_uri: window.location.origin }}
     >
     <App />
