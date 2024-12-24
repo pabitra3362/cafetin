@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       // Proxy API requests to the backend server on port 3000
       '/api': {
-        target: 'https://cafelin.onrender.com/api',  // Your backend server URL
+        target: 'https://cafelin.up.railway.app/api',  // Your backend server URL
         changeOrigin: true,  // Needed for virtual hosted sites
         secure: true,      // Set to true if you have SSL, false if not
         rewrite: (path) => path.replace(/^\/api/, ''),  // Optional: Remove '/api' prefix if necessary

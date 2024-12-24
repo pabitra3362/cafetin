@@ -25,7 +25,7 @@ const CartCard = ({
     const newTotal = oldTotal + (newQuantity - count) * itemPrice; // Recalculate the total
 
     setTotal(newTotal);
-    const response = await axios.put("https://cafelin.onrender.com/api/cart/changeCart", {
+    const response = await axios.put("https://cafelin.up.railway.app/api/cart/changeCart", {
       quantity: newQuantity,
       id,
     });
@@ -43,7 +43,7 @@ const CartCard = ({
     );
 
     try {
-      const response = await axios.delete("https://cafelin.onrender.com/api/cart/deleteCart", {
+      const response = await axios.delete("https://cafelin.up.railway.app/api/cart/deleteCart", {
         data: {
           id,
         },

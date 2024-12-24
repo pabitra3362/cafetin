@@ -13,7 +13,7 @@ const DishCard = ({image,title,description,price}) => {
   const handleCart=async() => {
     if(!isAuthenticated) toast.error("Please log in first.")
     try {
-      const res=await axios.post('https://cafelin.onrender.com/api/cart/addToCart',{image,title,description,price,user:user.name,quantity:1})
+      const res=await axios.post('https://cafelin.up.railway.app/api/cart/addToCart',{image,title,description,price,user:user.name,quantity:1})
       const data= await res.data;
       
       if(data.status===201){
