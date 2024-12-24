@@ -10,11 +10,11 @@ import cors from 'cors';
 const app = express();
 const port = config.port || 3000;
 
+mongoConnect();
 
 app.use(express.json()); // Middleware to parse JSON data
 app.use(cors());
 
-mongoConnect();
 
 // Route to test if the server is working
 app.get("/", (req, res) => {
