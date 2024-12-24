@@ -1,51 +1,56 @@
-import React,{useState, useEffect} from 'react'
-import axios from 'axios';
-import { useAuth0 } from '@auth0/auth0-react';
-import { motion } from 'framer-motion';
-import OrderCard from '../components/OrderCard';
-import emptyOrder from '../assets/emptyOrder.mp4';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
+import { motion } from "framer-motion";
+import OrderCard from "../components/OrderCard";
+import emptyOrder from "../assets/emptyOrder.mp4";
 
 const Admin = () => {
+  const [orders, setOrders] = useState([]);
+  const [toggle, setToggle] = useState(false); // Fixed typo: "toogle" to "toggle"
 
-    const [orders, setOrders] = useState([]);
-    const [toogle, setToogle] = useState(false)
-
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   useEffect(() => {
-    return async () => {
+    const fetchOrders = async () => {
       try {
-        if(isAuthenticated){
-          
-          const userOrders = await axios.get(
+        if (isAuthenticated) {
+          const response = await axios.get(
             "https://cafelin.up.railway.app/api/order/getOrders"
           );
-          const data = await userOrders.data;
+          const data = response.data;
           if (data.status === 200) {
             setOrders(data.message);
-          }else{
+          } else {
             setOrders([]);
           }
         }
       } catch (error) {
-        console.error(error.message);
-        
+        console.error("Error fetching orders:", error.message);
       }
     };
-  }, [toogle]);
+
+    fetchOrders();
+  }, [toggle, isAuthenticated]); // Added "isAuthenticated" for clarity
 
   return (
     <div>
       {orders.length === 0 ? (
-        <div className="h-screen flex justify-center items-center ">
+        <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
             <div className="bg-transparent">
-              <video src={emptyOrder} loop autoPlay></video>
+              <video
+                src={emptyOrder}
+                loop
+                autoPlay
+                muted
+                className="w-full h-auto"
+              ></video>
             </div>
-            <p className="text-black font-bold text-2xl">Admin Order List Is Empty</p>
-            <p className="text-center">
-              Open After Some Time.
+            <p className="text-black font-bold text-2xl">
+              Admin Order List Is Empty
             </p>
+            <p className="text-center">Open After Some Time.</p>
           </div>
         </div>
       ) : (
@@ -75,14 +80,14 @@ const Admin = () => {
                 admin={true}
                 user={item.user}
                 id={item._id}
-                setToogle={setToogle}
+                setToggle={setToggle} // Pass setToggle to update the state when needed
               />
             ))}
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Admin
+export default Admin;

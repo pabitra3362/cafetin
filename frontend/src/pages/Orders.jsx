@@ -7,40 +7,48 @@ import axios from "axios";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-
   const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
-    return async () => {
+    const fetchOrders = async () => {
       try {
-        if(isAuthenticated){
-          
-          const userOrders = await axios.post(
+        if (isAuthenticated) {
+          const response = await axios.post(
             "https://cafelin.up.railway.app/api/order/getOrders",
             { user: user.name }
           );
-          const data = await userOrders.data;
+          const data = response.data;
           if (data.status === 200) {
             setOrders(data.message);
-          }else{
+          } else {
             setOrders([]);
           }
         }
       } catch (error) {
-        console.error(error.message);
-        
+        console.error("Error fetching orders:", error.message);
       }
     };
-  }, []);
+
+    fetchOrders();
+  }, [isAuthenticated, user]);
+
   return (
     <div>
       {orders.length === 0 ? (
-        <div className="h-screen flex justify-center items-center ">
+        <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
             <div className="bg-transparent">
-              <video src={emptyOrder} loop autoPlay></video>
+              <video
+                src={emptyOrder}
+                loop
+                autoPlay
+                muted
+                className="w-full h-auto"
+              ></video>
             </div>
-            <p className="text-black font-bold text-2xl">Your Order List Is Empty</p>
+            <p className="text-black font-bold text-2xl">
+              Your Order List Is Empty
+            </p>
             <p className="text-center">
               Looks like you haven't made your choice yet. Browse our menu to
               find the perfect dish for you.
@@ -70,7 +78,7 @@ const Orders = () => {
                 title={item.title}
                 price={item.price}
                 quantity={item.quantity}
-                idDone={item.isDone}
+                isDone={item.isDone} // Fixed typo from "idDone" to "isDone"
                 total={true}
               />
             ))}

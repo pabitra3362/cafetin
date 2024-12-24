@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import CartCard from "../components/CartCard";
 import emptyCart from "../assets/emptyCart.png";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import config from "../../config";
 import { motion } from "framer-motion";
@@ -12,24 +12,26 @@ const Cart = () => {
   const { user, isAuthenticated } = useAuth0();
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Fetch cart items
   useEffect(() => {
-    return async () => {
+    const fetchCart = async () => {
+      setLoading(true);
       try {
         if (isAuthenticated) {
           const response = await axios.post("https://cafelin.up.railway.app/api/cart/listCartItem", {
             user: user.name,
           });
-          const data = await response.data;
+          const data = response.data;
           if (data.status === 201) {
-            var carts = data.message;
+            const carts = data.message;
             setCart(carts);
-            console.log(carts);
-            var subtotal = 0;
-            subtotal = carts.reduce((total, item) => {
-              let tempPrice = Number(item.price);
-              let tempQuantity = Number(item.quantity);
+
+            const subtotal = carts.reduce((total, item) => {
+              const tempPrice = Number(item.price);
+              const tempQuantity = Number(item.quantity);
               return total + tempPrice * tempQuantity;
             }, 0);
             setTotal(subtotal);
@@ -40,25 +42,29 @@ const Cart = () => {
           setCart([]);
         }
       } catch (error) {
-        console.error(error.message);
+        console.error("Error fetching cart:", error.message);
+      } finally {
+        setLoading(false);
       }
     };
-  }, [CartCard]);
 
-  //handlePayment function
+    fetchCart();
+  }, [isAuthenticated, user]);
+
+  // Handle payment
   const handlePayment = async () => {
     try {
       const response = await axios.post("https://cafelin.up.railway.app/api/payment/order", {
         amount: total,
       });
-      const data = await response.data;
+      const data = response.data;
       handlePaymentVerify(data);
     } catch (error) {
-      toast.error("Something went wrong!!!Try again later.");
+      toast.error("Something went wrong! Please try again later.");
     }
   };
 
-  // handlePaymentVerify Function
+  // Handle payment verification
   const handlePaymentVerify = async (data) => {
     const options = {
       key: config.razorpay_key,
@@ -76,50 +82,62 @@ const Cart = () => {
             amount: data.amount / 100,
           });
 
-          const verifyData = await res.data;
+          const verifyData = res.data;
 
           if (verifyData.message) {
             toast.success(verifyData.message);
-            const newCart = await axios.post("https://cafelin.up.railway.app/api/cart/listCartItem", {
-              user: user.name,
-            });
-            const data = await newCart.data;
-            const newOrder = data.message.map(({ _id, ...rest }) => rest);
-            await axios.post("https://cafelin.up.railway.app/api/order/addOrders", newOrder);
+
+            // Clear the cart after successful payment
             await axios.delete("https://cafelin.up.railway.app/api/cart/deleteAllCart", {
               data: { user: user.name },
-            }); //problem is here
+            });
+
             setCart([]);
             setTotal(0);
+
+            // Optionally, refresh the cart state
+            const newCartResponse = await axios.post("https://cafelin.up.railway.app/api/cart/listCartItem", {
+              user: user.name,
+            });
+            const newCartData = newCartResponse.data;
+
+            if (newCartData.status === 201) {
+              setCart(newCartData.message);
+            }
+
             navigate("/orders");
           }
         } catch (error) {
-          console.log(error);
+          console.error("Error during payment verification:", error.message);
         }
       },
     };
+
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
+
+  if (loading) {
+    return <div className="h-screen flex justify-center items-center">Loading...</div>;
+  }
 
   return (
     <div className="w-full md:w-[80vw] lg:w-[80vw] mx-auto">
       <ToastContainer theme="dark" />
       {cart.length === 0 ? (
-        <div className="h-screen flex justify-center items-center ">
+        <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
             <div className="bg-transparent">
-              <img className="" src={emptyCart} alt={emptyCart} />
+              <img src={emptyCart} alt="Empty Cart" />
             </div>
             <p className="text-black font-bold text-2xl">Your Cart Is Empty</p>
             <p className="text-center">
-              Looks like you haven't made your choice yet. Browse our menu to
-              find the perfect dish for you.
+              Looks like you haven't made your choice yet. Browse our menu to find the perfect dish for you.
             </p>
           </div>
         </div>
       ) : (
-        <div className="">
+        <div>
           <motion.h2
             animate={{
               x: [-100, 100, 0],
