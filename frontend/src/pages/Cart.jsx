@@ -25,6 +25,7 @@ const Cart = () => {
           if (data.status === 201) {
             var carts = data.message;
             setCart(carts);
+            console.log(carts);
             var subtotal = 0;
             subtotal = carts.reduce((total, item) => {
               let tempPrice = Number(item.price);
