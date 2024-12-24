@@ -3,6 +3,7 @@ import cafelinOutside from "../assets/cafelinOutside.jpg";
 import cafelinInside from "../assets/cafelinInside.jpg";
 import cafelinOwner from "../assets/cafelinOwner.jpg";
 import { motion } from 'framer-motion'
+import Loader from "../components/Loader";
 
 const About = () => {
   const bgimage = {

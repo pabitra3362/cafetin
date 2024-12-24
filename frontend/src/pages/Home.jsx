@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Hero from "../components/Hero";
 import Menus from "../components/Menus";
 import { motion } from "motion/react";
 import footCoffee from '../assets/footer-coffee.avif'
+import Loader from "../components/Loader";
 
 const Home = () => {
+  const [loader, setLoader] = useState(true)
+  useEffect(()=>{
+   const timer = setTimeout(()=>setLoader(false), 3000)
+    return () => clearTimeout(timer) 
+  })
+
   const bgimage = {
     backgroundImage: `url(${footCoffee})`,
     backgroundSize: "cover",
@@ -16,6 +23,7 @@ const Home = () => {
 
   return (
     <div>
+      {loader && <Loader />}
       <div className="head">
         <Hero />
       </div>

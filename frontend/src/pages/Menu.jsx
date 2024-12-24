@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import DishCard from "../components/DishCard";
+import Loader from "../components/Loader";
 
 import {
   All,
@@ -19,6 +20,11 @@ import {
 
 const Menu = () => {
   const [selected, setSelected] = useState("All");
+  const [loader, setLoader] = useState(true)
+    useEffect(()=>{
+     const timer = setTimeout(()=>setLoader(false), 3000)
+      return () => clearTimeout(timer) 
+    })
 
   const categoryMap = {
     All,
@@ -50,6 +56,7 @@ const Menu = () => {
   ];
   return (
     <div className="min-h-screen w-full md:w-[80vw] lg:w-[80vw] px-3 mx-auto">
+      {loader && <Loader />}
       <div className="flex justify-between items-center">
         <motion.p
           animate={{

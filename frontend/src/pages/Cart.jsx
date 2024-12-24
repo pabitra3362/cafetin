@@ -7,12 +7,20 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import config from "../../config";
 import { motion } from "framer-motion";
+import Loader from "../components/Loader";
+
 
 const Cart = () => {
   const { user, isAuthenticated } = useAuth0();
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
+
+  const [loader, setLoader] = useState(true)
+    useEffect(()=>{
+     const timer = setTimeout(()=>setLoader(false), 3000)
+      return () => clearTimeout(timer) 
+    })
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -115,6 +123,7 @@ const Cart = () => {
 
   return (
     <div className="w-full md:w-[80vw] lg:w-[80vw] mx-auto">
+      {loader && <Loader />}
       <ToastContainer theme="dark" />
       {cart.length === 0 ? (
         <div className="h-screen flex justify-center items-center">

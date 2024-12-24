@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import cafelinInside from "../assets/cafelinInside.jpg";
 import { CiMap } from "react-icons/ci";
 import { motion } from 'motion/react'
@@ -6,8 +6,16 @@ import MyInput from "../components/Input";
 import Textarea from "../components/Textarea";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
+import Loader from "../components/Loader";
 
 const Contact = () => {
+
+    const [loader, setLoader] = useState(true)
+      useEffect(()=>{
+       const timer = setTimeout(()=>setLoader(false), 3000)
+        return () => clearTimeout(timer) 
+      })
+
   const bgimage = {
     backgroundImage: `url(${cafelinInside})`,
     backgroundPosition: "center",
@@ -42,6 +50,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+        {loader && <Loader />}
       <ToastContainer theme="dark" />
       <div style={bgimage} className="flex justify-center items-center">
         <h1 className="text-white font-bold text-4xl md:text-[4rem] tracking-[0.25rem]">
@@ -73,9 +82,9 @@ const Contact = () => {
             className="w-80 h-[70vh] md:h-96 lg:w-[45vw] lg:h-[65vh] rounded-lg"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.217520428594!2d72.75985027597909!3d21.14374008381806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be051e0cd0f330d%3A0x1ce217b05c0fc420!2sCafelin!5e0!3m2!1sen!2sin!4v1734966562358!5m2!1sen!2sin"
             style={{ border: 0 }}
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

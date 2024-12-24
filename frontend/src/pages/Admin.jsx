@@ -4,10 +4,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { motion } from "framer-motion";
 import OrderCard from "../components/OrderCard";
 import emptyOrder from "../assets/emptyOrder.mp4";
+import Loader from "../components/Loader";
 
 const Admin = () => {
   const [orders, setOrders] = useState([]);
   const [toggle, setToggle] = useState(false);
+  
+  const [loader, setLoader] = useState(true)
+    useEffect(()=>{
+     const timer = setTimeout(()=>setLoader(false), 3000)
+      return () => clearTimeout(timer) 
+    })
 
   const { isAuthenticated } = useAuth0();
 
@@ -35,6 +42,7 @@ const Admin = () => {
 
   return (
     <div>
+      {loader && <Loader />}
       {orders.length === 0 ? (
         <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
