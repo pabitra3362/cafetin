@@ -7,7 +7,7 @@ import emptyOrder from "../assets/emptyOrder.mp4";
 
 const Admin = () => {
   const [orders, setOrders] = useState([]);
-  const [toggle, setToggle] = useState(false); // Fixed typo: "toogle" to "toggle"
+  const [toggle, setToggle] = useState(false);
 
   const { isAuthenticated } = useAuth0();
 
@@ -31,7 +31,7 @@ const Admin = () => {
     };
 
     fetchOrders();
-  }, [toggle, isAuthenticated]); // Added "isAuthenticated" for clarity
+  }, [isAuthenticated, toggle]);
 
   return (
     <div>
@@ -39,13 +39,7 @@ const Admin = () => {
         <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
             <div className="bg-transparent">
-              <video
-                src={emptyOrder}
-                loop
-                autoPlay
-                muted
-                className="w-full h-auto"
-              ></video>
+              <video src={emptyOrder} loop autoPlay muted></video>
             </div>
             <p className="text-black font-bold text-2xl">
               Admin Order List Is Empty
@@ -80,7 +74,7 @@ const Admin = () => {
                 admin={true}
                 user={item.user}
                 id={item._id}
-                setToggle={setToggle} // Pass setToggle to update the state when needed
+                setToggle={setToggle}
               />
             ))}
           </div>

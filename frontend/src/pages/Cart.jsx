@@ -12,103 +12,99 @@ const Cart = () => {
   const { user, isAuthenticated } = useAuth0();
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Fetch cart items
   useEffect(() => {
-    const fetchCart = async () => {
-      setLoading(true);
+    const fetchCartItems = async () => {
       try {
         if (isAuthenticated) {
-          const response = await axios.post("https://cafelin.up.railway.app/api/cart/listCartItem", {
-            user: user.name,
-          });
+          const response = await axios.post(
+            "https://cafelin.up.railway.app/api/cart/listCartItem",
+            { user: user.name }
+          );
           const data = response.data;
+
           if (data.status === 201) {
             const carts = data.message;
             setCart(carts);
 
-            const subtotal = carts.reduce((total, item) => {
-              const tempPrice = Number(item.price);
-              const tempQuantity = Number(item.quantity);
-              return total + tempPrice * tempQuantity;
+            const subtotal = carts.reduce((acc, item) => {
+              return acc + Number(item.price) * Number(item.quantity);
             }, 0);
             setTotal(subtotal);
           } else {
             setCart([]);
           }
-        } else {
-          setCart([]);
         }
       } catch (error) {
-        console.error("Error fetching cart:", error.message);
-      } finally {
-        setLoading(false);
+        console.error(error.message);
+        toast.error("Failed to fetch cart items.");
       }
     };
 
-    fetchCart();
+    fetchCartItems();
   }, [isAuthenticated, user]);
 
-  // Handle payment
   const handlePayment = async () => {
     try {
-      const response = await axios.post("https://cafelin.up.railway.app/api/payment/order", {
-        amount: total,
-      });
-      const data = response.data;
-      handlePaymentVerify(data);
+      const response = await axios.post(
+        "https://cafelin.up.railway.app/api/payment/order",
+        { amount: total }
+      );
+      handlePaymentVerify(response.data);
     } catch (error) {
-      toast.error("Something went wrong! Please try again later.");
+      toast.error("Payment initiation failed. Please try again.");
     }
   };
 
-  // Handle payment verification
-  const handlePaymentVerify = async (data) => {
+  const handlePaymentVerify = (data) => {
     const options = {
       key: config.razorpay_key,
       amount: data.amount,
       currency: data.currency,
       name: "Cafelin",
-      description: "Test Mode",
+      description: "Order Payment",
       order_id: data.id,
       handler: async (response) => {
         try {
-          const res = await axios.post("https://cafelin.up.railway.app/api/payment/verify", {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            amount: data.amount / 100,
-          });
+          const res = await axios.post(
+            "https://cafelin.up.railway.app/api/payment/verify",
+            {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              amount: data.amount / 100,
+            }
+          );
 
-          const verifyData = res.data;
-
+          const verifyData = await res.data;
           if (verifyData.message) {
             toast.success(verifyData.message);
-
-            // Clear the cart after successful payment
-            await axios.delete("https://cafelin.up.railway.app/api/cart/deleteAllCart", {
-              data: { user: user.name },
-            });
-
+            const newCart = await axios.post(
+              "https://cafelin.up.railway.app/api/cart/listCartItem",
+              {
+                user: user.name,
+              }
+            );
+            const data = await newCart.data;
+            const newOrder = data.message.map(({ _id, ...rest }) => rest);
+            await axios.post(
+              "https://cafelin.up.railway.app/api/order/addOrders",
+              newOrder
+            );
+            await axios.delete(
+              "https://cafelin.up.railway.app/api/cart/deleteAllCart",
+              {
+                data: { user: user.name },
+              }
+            );
             setCart([]);
             setTotal(0);
-
-            // Optionally, refresh the cart state
-            const newCartResponse = await axios.post("https://cafelin.up.railway.app/api/cart/listCartItem", {
-              user: user.name,
-            });
-            const newCartData = newCartResponse.data;
-
-            if (newCartData.status === 201) {
-              setCart(newCartData.message);
-            }
-
             navigate("/orders");
           }
         } catch (error) {
-          console.error("Error during payment verification:", error.message);
+          console.error("Payment verification failed:", error);
+          toast.error("Payment verification failed. Please try again.");
         }
       },
     };
@@ -117,10 +113,6 @@ const Cart = () => {
     rzp1.open();
   };
 
-  if (loading) {
-    return <div className="h-screen flex justify-center items-center">Loading...</div>;
-  }
-
   return (
     <div className="w-full md:w-[80vw] lg:w-[80vw] mx-auto">
       <ToastContainer theme="dark" />
@@ -128,11 +120,12 @@ const Cart = () => {
         <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
             <div className="bg-transparent">
-              <img src={emptyCart} alt="Empty Cart" />
+              <img className="" src={emptyCart} alt="Empty Cart" />
             </div>
             <p className="text-black font-bold text-2xl">Your Cart Is Empty</p>
             <p className="text-center">
-              Looks like you haven't made your choice yet. Browse our menu to find the perfect dish for you.
+              Looks like you haven't made your choice yet. Browse our menu to
+              find the perfect dish for you.
             </p>
           </div>
         </div>
@@ -142,10 +135,7 @@ const Cart = () => {
             animate={{
               x: [-100, 100, 0],
               rotate: [-270, 0],
-              transition: {
-                duration: 1,
-                type: "spring",
-              },
+              transition: { duration: 1, type: "spring" },
             }}
             className="text-custom-brown text-center text-4xl my-8 lg:my-28 underline font-bold"
           >

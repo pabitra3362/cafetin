@@ -38,13 +38,7 @@ const Orders = () => {
         <div className="h-screen flex justify-center items-center">
           <div className="grid justify-items-center items-center gap-3">
             <div className="bg-transparent">
-              <video
-                src={emptyOrder}
-                loop
-                autoPlay
-                muted
-                className="w-full h-auto"
-              ></video>
+              <video src={emptyOrder} loop autoPlay muted></video>
             </div>
             <p className="text-black font-bold text-2xl">
               Your Order List Is Empty
@@ -78,7 +72,7 @@ const Orders = () => {
                 title={item.title}
                 price={item.price}
                 quantity={item.quantity}
-                isDone={item.isDone} // Fixed typo from "idDone" to "isDone"
+                isDone={item.isDone}
                 total={true}
               />
             ))}
