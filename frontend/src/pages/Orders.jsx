@@ -16,7 +16,7 @@ const Orders = () => {
         if(isAuthenticated){
           
           const userOrders = await axios.post(
-            "/api/order/getOrders",
+            "https://cafelin.onrender.com/api/order/getOrders",
             { user: user.name }
           );
           const data = await userOrders.data;

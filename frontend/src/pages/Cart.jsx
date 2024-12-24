@@ -18,7 +18,7 @@ const Cart = () => {
     return async () => {
       try {
         if (isAuthenticated) {
-          const response = await axios.post("/api/cart/listCartItem", {
+          const response = await axios.post("https://cafelin.onrender.com/api/cart/listCartItem", {
             user: user.name,
           });
           const data = await response.data;
@@ -47,7 +47,7 @@ const Cart = () => {
   //handlePayment function
   const handlePayment = async () => {
     try {
-      const response = await axios.post("/api/payment/order", {
+      const response = await axios.post("https://cafelin.onrender.com/api/payment/order", {
         amount: total,
       });
       const data = await response.data;
@@ -68,7 +68,7 @@ const Cart = () => {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const res = await axios.post("/api/payment/verify", {
+          const res = await axios.post("https://cafelin.onrender.com/api/payment/verify", {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,
@@ -79,13 +79,13 @@ const Cart = () => {
 
           if (verifyData.message) {
             toast.success(verifyData.message);
-            const newCart = await axios.post("/api/cart/listCartItem", {
+            const newCart = await axios.post("https://cafelin.onrender.com/api/cart/listCartItem", {
               user: user.name,
             });
             const data = await newCart.data;
             const newOrder = data.message.map(({ _id, ...rest }) => rest);
-            await axios.post("/api/order/addOrders", newOrder);
-            await axios.delete("/api/cart/deleteAllCart", {
+            await axios.post("https://cafelin.onrender.com/api/order/addOrders", newOrder);
+            await axios.delete("https://cafelin.onrender.com/api/cart/deleteAllCart", {
               data: { user: user.name },
             }); //problem is here
             setCart([]);

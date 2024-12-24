@@ -17,7 +17,7 @@ const OrderCard = ({
 
   const handleChangeOrder = async() => {
     try {
-      const res=await axios.put('/api/order/changeOrderStatus',{id});
+      const res=await axios.put('https://cafelin.onrender.com/api/order/changeOrderStatus',{id});
       const data=await res.data;
       if(data.status===201){
         toast.success(res.message)
