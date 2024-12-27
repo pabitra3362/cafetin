@@ -30,15 +30,15 @@ const Menu = () => {
     All,
     Coffee,
     Tea,
-    Fries,
+    Drinks,
     Momos,
     Frankies,
-    Sandwich,
     Pizza,
     Burger,
     Rolls,
     Maggies,
-    Drinks,
+    Fries,
+    Sandwich,
   };
 
   const arr = [
@@ -70,32 +70,34 @@ const Menu = () => {
           Menu
         </motion.p>
         <motion.select
-          animate={{
-            x: [100, 0],
-            transition: {
-              duration: 1,
-            },
-          }}
-          className="font-bold border-2 border-black rounded-lg"
-        >
-          {arr.map((item, index) => (
-            <motion.option
-              animate={{
-                opacity: [0, , 0.5, 1],
-                transition: {
-                  duration: 1,
-                  delay: index * 1,
-                },
-              }}
-              key={index}
-              className="rounded-lg hover:text-custom-brown"
-              onClick={() => setSelected(item)}
-              value={item}
-            >
-              {item}
-            </motion.option>
-          ))}
-        </motion.select>
+  animate={{
+    x: [100, 0],
+    transition: {
+      duration: 1,
+    },
+  }}
+  className="font-bold border-2 border-black rounded-lg"
+  value={selected} // Bind the selected value
+  onChange={(e) => setSelected(e.target.value)} // Use onChange to update state
+>
+  {arr.map((item, index) => (
+    <motion.option
+      animate={{
+        opacity: [0, 0.5, 1],
+        transition: {
+          duration: 1,
+          delay: index * 0.1, // Adjust delay for better animation
+        },
+      }}
+      key={index}
+      className="rounded-lg hover:text-custom-brown"
+      value={item} // Set value for the option
+    >
+      {item}
+    </motion.option>
+  ))}
+</motion.select>
+
       </div>
       <motion.p
         whileInView={{
