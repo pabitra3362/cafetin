@@ -32,7 +32,6 @@ router.post("/listCartItem", async (req, res) => {
   try {
     const data = await req.body;
     const result = await Cart.find({ user: data.user });
-    console.log(result)
     if (result.length > 0) {
       return res.status(201).json({ message: result, status: 201 });
     } else {
