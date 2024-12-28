@@ -20,7 +20,7 @@ const Orders = () => {
       try {
         if (isAuthenticated) {
           const response = await axios.post(
-            "https://cafelin.up.railway.app/api/order/getOrders",
+            "https://cafelin.onrender.com/api/order/getOrders",
             { user: user.name }
           );
           const data = response.data;

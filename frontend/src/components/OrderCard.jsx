@@ -17,7 +17,7 @@ const OrderCard = ({
   const handleChangeOrder = async () => {
     try {
       const res = await axios.put(
-        "https://cafelin.up.railway.app/api/order/changeOrderStatus",
+        "https://cafelin.onrender.com/api/order/changeOrderStatus",
         { id }
       );
       const data = res.data;

@@ -23,7 +23,7 @@ const Admin = () => {
       try {
         if (isAuthenticated) {
           const response = await axios.get(
-            "https://cafelin.up.railway.app/api/order/getOrders"
+            "https://cafelin.onrender.com/api/order/getOrders"
           );
           const data = response.data;
           if (data.status === 200) {
