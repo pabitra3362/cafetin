@@ -13,7 +13,9 @@ const port = config.port || 3000;
 mongoConnect();
 
 app.use(express.json()); // Middleware to parse JSON data
-app.use(cors());
+app.use(cors({
+  origin:["https://cafelin.netlify.app"]
+}));
 
 
 // Route to test if the server is working
