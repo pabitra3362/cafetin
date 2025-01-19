@@ -71,7 +71,7 @@ const Navbar = () => {
             {
               isAuthenticated ?
                 <button 
-                onClick={logout}
+                onClick={()=>logout({returnTo: window.location.origin})}
                 className='btn btn-outline text-custom-brown hover:bg-custom-brown font-bold'>
                   Logout
                 </button>

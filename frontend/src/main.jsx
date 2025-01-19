@@ -14,6 +14,7 @@ createRoot(document.getElementById('root')).render(
     domain={config.authDomain}
     clientId={config.authClientId}
     authorizationParams={{ redirect_uri: window.location.origin }}
+    cacheLocation="localstorage"
     >
     <App />
     </Auth0Provider>
