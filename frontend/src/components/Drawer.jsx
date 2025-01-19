@@ -50,7 +50,7 @@ export function MyDrawer() {
             <div className="flex justify-center items-center">
               {isAuthenticated ? (
                 <button
-                  onClick={logout}
+                  onClick={()=>logout({returnTo: window.location.origin})}
                   className="btn btn-outline text-custom-brown hover:bg-custom-brown font-bold"
                 >
                   Logout
