@@ -10,7 +10,6 @@ import {
   Sandwich,
   Pizza,
   Burger,
-  Rolls,
   Maggies,
   Drinks,
 } from "../assets/asset";
@@ -29,7 +28,6 @@ const Menus = () => {
     Sandwich,
     Pizza,
     Burger,
-    Rolls,
     Maggies,
     Drinks,
   };

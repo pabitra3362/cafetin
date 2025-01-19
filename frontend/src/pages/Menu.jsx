@@ -13,7 +13,6 @@ import {
   Sandwich,
   Pizza,
   Burger,
-  Rolls,
   Maggies,
   Drinks,
 } from "../assets/asset";
@@ -35,7 +34,6 @@ const Menu = () => {
     Frankies,
     Pizza,
     Burger,
-    Rolls,
     Maggies,
     Fries,
     Sandwich,
@@ -50,7 +48,6 @@ const Menu = () => {
     "Frankies",
     "Pizza",
     "Burger",
-    "Rolls",
     "Maggies",
     "Fries",
   ];

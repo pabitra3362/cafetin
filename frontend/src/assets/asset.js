@@ -129,12 +129,6 @@ export const categories = [
     price: 150
   },
   {
-    src: Crolls,
-    title: "Rolls",
-    description: "A unique and mouthwatering dish featuring a combination of ingredients and spices that come together in an unforgettable flavor profile. Perfect for adventurous eaters looking for something new.",
-    price: 150
-  },
-  {
     src: Cmaggie,
     title: "Maggies",
     description: "A unique and mouthwatering dish featuring a combination of ingredients and spices that come together in an unforgettable flavor profile. Perfect for adventurous eaters looking for something new.",
@@ -469,76 +463,6 @@ export const Burger = [
   }
 ];
 
-export const Rolls = [
-  {
-    "src": Crolls,
-    "title": "Veg Spring Roll (3 pcs)",
-    "description": "Crispy and golden rolls filled with a savory mix of fresh vegetables and aromatic spices, offering a crunchy and flavorful vegetarian snack.",
-    "price": 50
-  },
-  {
-    "src": cheeseRoll,
-    "title": "Cheese Roll (3 pcs)",
-    "description": "Soft, flaky rolls filled with melted cheese, seasoned with herbs and spices, offering a warm and cheesy snack that's perfect for any time of day.",
-    "price": 60
-  },
-  {
-    "src": italianRoll,
-    "title": "Italian Roll (3 pcs)",
-    "description": "Delicious rolls filled with a mix of Italian herbs, cheese, and fresh vegetables, delivering a savory and aromatic flavor with every bite.",
-    "price": 60
-  },
-  {
-    "src": schezwanRoll,
-    "title": "Schezwan Roll (3 pcs)",
-    "description": "Spicy and tangy rolls filled with a Schezwan sauce, veggies, and a savory filling, offering a bold and fiery snack experience.",
-    "price": 50
-  },
-  {
-    "src": paneerRoll,
-    "title": "Paneer Roll (3 pcs)",
-    "description": "Soft rolls filled with grilled paneer, fresh veggies, and a tasty sauce, offering a deliciously creamy and satisfying vegetarian snack.",
-    "price": 60
-  },
-  {
-    "src": premiumSpringRoll,
-    "title": "Premium Spring Roll (3 pcs)",
-    "description": "Crispy, golden spring rolls filled with a mix of fresh vegetables and savory spices, offering a premium, crunchy treat.",
-    "price": 70
-  },
-  {
-    "src": premiumCheeseRoll,
-    "title": "Premium Cheese Roll (3 pcs)",
-    "description": "A rich and indulgent snack made with premium cheese, rolled into a flaky crust and seasoned with savory spices for an extra cheesy experience.",
-    "price": 80
-  },
-  {
-    "src": premiumItalianRoll,
-    "title": "Premium Italian Roll (3 pcs)",
-    "description": "Gourmet rolls filled with a blend of Italian cheeses, fresh herbs, and vegetables, delivering a rich, flavorful snack with an Italian flair.",
-    "price": 70
-  },
-  {
-    "src": premiumSchezwanRoll,
-    "title": "Premium Schezwan Roll (3 pcs)",
-    "description": "Spicy and flavorful rolls filled with a tangy Schezwan sauce, fresh vegetables, and aromatic spices, offering a premium fiery snack.",
-    "price": 70
-  },
-  {
-    "src": premiumPaneerRoll,
-    "title": "Premium Paneer Roll (3 pcs)",
-    "description": "Premium rolls filled with creamy paneer, fresh veggies, and a rich blend of spices, providing a savory and satisfying vegetarian snack.",
-    "price": 80
-  },
-  {
-    "src": chanaDalSamosa,
-    "title": "Chana Dal Samosa (5 pcs)",
-    "description": "Crispy, golden samosas filled with a flavorful chana dal filling, offering a crunchy and savory snack that's perfect for tea-time or any occasion.",
-    "price": 30
-  }
-
-  
-];
 export const Maggies = [
   {
     "src": classicMaggie,
@@ -651,12 +575,6 @@ export const random=[
     "price": 100
   },
   {
-    "src": springRollPotato,
-    "title": "Spring Roll Potato",
-    "description": "Crispy spring rolls filled with seasoned potato, offering a delightful crunch and savory taste.",
-    "price": 80
-  },
-  {
     "src": vegPaneerMomo,
     "title": "Veg Paneer Momo",
     "description": "Soft and fluffy dumplings stuffed with a delightful blend of paneer and vegetables, offering a rich and satisfying flavor.",
@@ -714,12 +632,6 @@ export const random=[
     "src": tandooriBurger,
     "title": "Tandoori Burger",
     "description": "A flavorful burger featuring a tandoori-marinated patty, crispy lettuce, tangy onions, and a soft bun, offering a smoky, spicy twist to the classic burger.",
-    "price": 60
-  },
-  {
-    "src": italianRoll,
-    "title": "Italian Roll (3 pcs)",
-    "description": "Delicious rolls filled with a mix of Italian herbs, cheese, and fresh vegetables, delivering a savory and aromatic flavor with every bite.",
     "price": 60
   },
   {
@@ -1032,66 +944,6 @@ export const All=[
     "title": "Veg Cheese Paneer Burger",
     "description": "A delectable vegetarian burger with a grilled paneer patty, melted cheese, fresh veggies, and a flavorful sauce, offering a perfect combination of creamy and savory textures.",
     "price": 100
-  },
-  {
-    "src": Crolls,
-    "title": "Veg Spring Roll (3 pcs)",
-    "description": "Crispy and golden rolls filled with a savory mix of fresh vegetables and aromatic spices, offering a crunchy and flavorful vegetarian snack.",
-    "price": 50
-  },
-  {
-    "src": cheeseRoll,
-    "title": "Cheese Roll (3 pcs)",
-    "description": "Soft, flaky rolls filled with melted cheese, seasoned with herbs and spices, offering a warm and cheesy snack that's perfect for any time of day.",
-    "price": 60
-  },
-  {
-    "src": italianRoll,
-    "title": "Italian Roll (3 pcs)",
-    "description": "Delicious rolls filled with a mix of Italian herbs, cheese, and fresh vegetables, delivering a savory and aromatic flavor with every bite.",
-    "price": 60
-  },
-  {
-    "src": schezwanRoll,
-    "title": "Schezwan Roll (3 pcs)",
-    "description": "Spicy and tangy rolls filled with a Schezwan sauce, veggies, and a savory filling, offering a bold and fiery snack experience.",
-    "price": 50
-  },
-  {
-    "src": paneerRoll,
-    "title": "Paneer Roll (3 pcs)",
-    "description": "Soft rolls filled with grilled paneer, fresh veggies, and a tasty sauce, offering a deliciously creamy and satisfying vegetarian snack.",
-    "price": 60
-  },
-  {
-    "src": premiumSpringRoll,
-    "title": "Premium Spring Roll (3 pcs)",
-    "description": "Crispy, golden spring rolls filled with a mix of fresh vegetables and savory spices, offering a premium, crunchy treat.",
-    "price": 70
-  },
-  {
-    "src": premiumCheeseRoll,
-    "title": "Premium Cheese Roll (3 pcs)",
-    "description": "A rich and indulgent snack made with premium cheese, rolled into a flaky crust and seasoned with savory spices for an extra cheesy experience.",
-    "price": 80
-  },
-  {
-    "src": premiumItalianRoll,
-    "title": "Premium Italian Roll (3 pcs)",
-    "description": "Gourmet rolls filled with a blend of Italian cheeses, fresh herbs, and vegetables, delivering a rich, flavorful snack with an Italian flair.",
-    "price": 70
-  },
-  {
-    "src": premiumSchezwanRoll,
-    "title": "Premium Schezwan Roll (3 pcs)",
-    "description": "Spicy and flavorful rolls filled with a tangy Schezwan sauce, fresh vegetables, and aromatic spices, offering a premium fiery snack.",
-    "price": 70
-  },
-  {
-    "src": premiumPaneerRoll,
-    "title": "Premium Paneer Roll (3 pcs)",
-    "description": "Premium rolls filled with creamy paneer, fresh veggies, and a rich blend of spices, providing a savory and satisfying vegetarian snack.",
-    "price": 80
   },
   {
     "src": chanaDalSamosa,
