@@ -14,7 +14,7 @@ mongoConnect();
 
 app.use(express.json()); // Middleware to parse JSON data
 app.use(cors({
-  origin:["https://cafelin.netlify.app"]
+  origin:["https://cafelin.netlify.app","https://console.cron-job.org"]
 }));
 
 
