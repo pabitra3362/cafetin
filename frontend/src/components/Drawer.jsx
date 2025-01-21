@@ -28,7 +28,7 @@ export function MyDrawer() {
     <>
       <div className="flex items-center justify-center">
         <button
-          className="btn btn-outline text-custom-brown hover:bg-custom-brown"
+          className="border border-custom-brown px-3 py-3 rounded-md text-custom-brown hover:bg-custom-brown hover:text-white duration-300 font-bold"
           onClick={() => setIsOpen(true)}
         >
           <GiHamburgerMenu size={15} />
@@ -51,14 +51,14 @@ export function MyDrawer() {
               {isAuthenticated ? (
                 <button
                   onClick={()=>logout({returnTo: window.location.origin})}
-                  className="btn btn-outline text-custom-brown hover:bg-custom-brown font-bold"
+                  className="border border-custom-brown px-3 py-2 rounded-md text-custom-brown hover:bg-custom-brown hover:text-white duration-300 font-bold"
                 >
                   Logout
                 </button>
               ) : (
                 <button
                   onClick={loginWithRedirect}
-                  className="btn btn-outline text-custom-brown hover:bg-custom-brown font-bold"
+                  className="border border-custom-brown px-3 py-2 rounded-md text-custom-brown hover:bg-custom-brown hover:text-white duration-300 font-bold"
                 >
                   Login / Sign Up
                 </button>

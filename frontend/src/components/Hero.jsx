@@ -28,7 +28,7 @@ const Hero = () => {
         }}
         className="absolute top-16 md:top-32 left-6 md:left-10 w-fit h-fit grid gap-5 lg:gap-8"
       >
-        <p className="text-white text-xl font-bold md:text-2xl">
+        <p className="text-white text-wrap text-xl font-bold md:text-2xl">
           Order Your Favourite Coffee Here
         </p>
         <p className="hidden md:block lg:block text-[#e4e3e3] w-[70%] lg:text-xl">

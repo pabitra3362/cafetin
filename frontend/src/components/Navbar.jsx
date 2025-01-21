@@ -72,13 +72,13 @@ const Navbar = () => {
               isAuthenticated ?
                 <button 
                 onClick={()=>logout({returnTo: window.location.origin})}
-                className='btn btn-outline text-custom-brown hover:bg-custom-brown font-bold'>
+                className='border border-custom-brown px-3 py-2 rounded-md text-custom-brown hover:bg-custom-brown hover:text-white duration-300 font-bold'>
                   Logout
                 </button>
                 :
                 <button
                   onClick={loginWithRedirect}
-                  className='btn btn-outline text-custom-brown hover:bg-custom-brown font-bold'>Login / Sign Up</button>
+                  className='border border-custom-brown px-3 py-2 rounded-md text-custom-brown hover:bg-custom-brown hover:text-white duration-300 font-bold'>Login / Sign Up</button>
             }
           </div>
         </div>
