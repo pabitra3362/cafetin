@@ -58,8 +58,8 @@ const Navbar = () => {
 
         {/* right */}
         <div className=' flex justify-center items-center lg:gap-6 md:gap-3'>
-          <div className="indicator">
-            <span className="indicator-item badge badge-error"></span>
+          <div className="indicator relative">
+            <span className="w-4 h-4 bg-red-500 rounded-full absolute -top-1 -right-2"></span>
             <NavLink
               to={'/cart'}
             >
