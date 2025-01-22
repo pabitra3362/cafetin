@@ -23,14 +23,14 @@ const Footer = () => {
             <MdOutlineMail className="size-10 text-custom-brown" />
           </div>
           <div className="title font-bold text-lg">E-mail</div>
-          <div className="desc">cafelin24@gmail.com</div>
+          <div className="desc"><a href="mailto:cafelin24@gmail.com">cafelin24@gmail.com</a></div>
         </div>
         <div className="contact grid justify-start items-center gap-3">
           <div className="logo">
             <VscCallIncoming className="size-10 text-custom-brown" />
           </div>
           <div className="title font-bold text-lg">Call Us</div>
-          <div className="desc">+91 9054323293</div>
+          <div className="desc"><a href="tel:+919054323293">+91 9054323293</a></div>
         </div>
         <div className="time grid justify-start items-center gap-3">
           <div className="logo">
