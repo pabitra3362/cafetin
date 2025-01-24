@@ -117,6 +117,7 @@ const Cart = () => {
         } catch (error) {
           console.error("Payment verification failed:", error);
           toast.error("Payment verification failed. Please try again.");
+          setSpinner(false);
         }
       },
     };
@@ -179,6 +180,7 @@ const Cart = () => {
             <div className="h-[1px] bg-custom-brown my-4"></div>
             <div className="flex justify-center items-center">
               <button
+              disabled={spinner}
                 onClick={handlePayment}
                 className="bg-custom-brown text-white font-bold text-lg w-full lg:w-[40vw] p-2 rounded-xl"
               >

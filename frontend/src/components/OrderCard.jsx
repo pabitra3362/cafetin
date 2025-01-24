@@ -28,11 +28,14 @@ const OrderCard = ({
       const data = res.data;
       if (data.status === 201) {
         setToggle((prev) => !prev);
+        setSpinner(false);
       } else {
         toast.error(data.message);
+        setSpinner(false);
       }
     } catch (error) {
       toast.error("Error: " + error.message);
+      setSpinner(false);
     }
   };
 
@@ -73,6 +76,7 @@ const OrderCard = ({
                 <div>
                   <button
                     onClick={handleChangeOrder}
+                    disabled={spinner}
                     className="finish bg-custom-brown text-white text-lg font-bold px-3 rounded-lg py-2"
                   >
                     {spinner ? (
