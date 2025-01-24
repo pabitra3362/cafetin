@@ -35,7 +35,6 @@ const OrderCard = ({
       }
     } catch (error) {
       toast.error("Error: " + error.message);
-      setSpinner(false);
     }
   };
 

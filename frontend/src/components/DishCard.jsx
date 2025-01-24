@@ -29,7 +29,6 @@ const DishCard = ({image,title,description,price}) => {
       }
     } catch (error) {
       toast.error(error)
-      setSpinner(false);
     }
   }
   
