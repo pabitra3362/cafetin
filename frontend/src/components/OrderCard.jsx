@@ -27,7 +27,6 @@ const OrderCard = ({
       );
       const data = res.data;
       if (data.status === 201) {
-        toast.success(data.message);
         setToggle((prev) => !prev);
       } else {
         toast.error(data.message);
