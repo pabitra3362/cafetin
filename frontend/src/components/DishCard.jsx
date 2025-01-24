@@ -22,13 +22,13 @@ const DishCard = ({image,title,description,price}) => {
       
       if(data.status===201){
         toast.success(data.message)
-        setSpinner(false);
       }else{
         toast.error(data.message)
-        setSpinner(false);
       }
     } catch (error) {
       toast.error(error)
+    }finally{
+      setSpinner(false);
     }
   }
   

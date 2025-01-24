@@ -28,13 +28,13 @@ const OrderCard = ({
       const data = res.data;
       if (data.status === 201) {
         setToggle((prev) => !prev);
-        setSpinner(false);
       } else {
         toast.error(data.message);
-        setSpinner(false);
       }
     } catch (error) {
       toast.error("Error: " + error.message);
+    }finally{
+      setSpinner(false);
     }
   };
 

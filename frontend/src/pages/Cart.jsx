@@ -117,6 +117,7 @@ const Cart = () => {
         } catch (error) {
           console.error("Payment verification failed:", error);
           toast.error("Payment verification failed. Please try again.");
+        }finally{
           setSpinner(false);
         }
       },
