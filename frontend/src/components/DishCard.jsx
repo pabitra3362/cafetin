@@ -26,7 +26,7 @@ const DishCard = ({image,title,description,price}) => {
         toast.error(data.message)
       }
     } catch (error) {
-      toast.error(error)
+      console.log(error);
     }finally{
       setSpinner(false);
     }
@@ -52,7 +52,7 @@ const DishCard = ({image,title,description,price}) => {
           disabled={spinner}
           onClick={handleCart} title='click to add item in the cart' className='absolute p-2 rounded-full bg-white text-xl bottom-5 right-3'>
             {
-              spinner ? (<img src={addCartLoader} alt="loading" className='h-8 w-8'/>) : <FaCartPlus />
+              spinner ? (<img src={addCartLoader} />) : <FaCartPlus />
             }
           </button>
         </div>
