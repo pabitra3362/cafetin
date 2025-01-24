@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Spinner } from "flowbite-react";
 import axios from "axios";
@@ -15,7 +15,11 @@ const OrderCard = ({
   id = "",
   setToggle,
 }) => {
+
+  const [spinner, setSpinner] = useState(false);
+
   const handleChangeOrder = async () => {
+    setSpinner(true);
     try {
       const res = await axios.put(
         "https://cafelin.onrender.com/api/order/changeOrderStatus",
