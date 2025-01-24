@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import config from "../../config";
 import { motion } from "framer-motion";
+import { Spinner } from "flowbite-react";
 import Loader from "../components/Loader";
 
 
@@ -14,6 +15,7 @@ const Cart = () => {
   const { user, isAuthenticated } = useAuth0();
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [spinner,setSpinner] = useState(false)
   const navigate = useNavigate();
 
   const [loader, setLoader] = useState(true)
@@ -54,6 +56,8 @@ const Cart = () => {
   }, [isAuthenticated, user]);
 
   const handlePayment = async () => {
+    setSpinner(true);
+
     try {
       const response = await axios.post(
         "https://cafelin.onrender.com/api/payment/order",
@@ -178,7 +182,9 @@ const Cart = () => {
                 onClick={handlePayment}
                 className="bg-custom-brown text-white font-bold text-lg w-full lg:w-[40vw] p-2 rounded-xl"
               >
-                Make Payment
+                {
+                  spinner ? <Spinner aria-label="Default status example" /> : "Make Payment"
+                }
               </button>
             </div>
           </div>

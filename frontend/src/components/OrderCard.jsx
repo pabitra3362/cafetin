@@ -1,5 +1,6 @@
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { Spinner } from "flowbite-react";
 import axios from "axios";
 
 const OrderCard = ({
@@ -71,7 +72,11 @@ const OrderCard = ({
                     onClick={handleChangeOrder}
                     className="finish bg-custom-brown text-white text-lg font-bold px-3 rounded-lg py-2"
                   >
-                    Clear Order
+                    {spinner ? (
+                      <Spinner aria-label="Default status example" />
+                    ) : (
+                      "Clear Order"
+                    )}
                   </button>
                 </div>
               )}
