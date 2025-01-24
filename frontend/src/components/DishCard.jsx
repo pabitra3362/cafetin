@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import { TfiPlus } from "react-icons/tfi";
 import { FaCartPlus } from "react-icons/fa6";
@@ -12,6 +12,18 @@ const DishCard = ({image,title,description,price}) => {
 
   const {user,isAuthenticated}=useAuth0()
   const [spinner, setSpinner] = useState(false);
+
+  useEffect(()=>{
+    const timer = ()=>{
+      setTimeout(() => {
+        setSpinner(false);
+      }, 2000);
+    }
+
+    timer();
+
+    return ()=> clearTimeout(timer);
+  },[spinner])
 
   const handleCart=async() => {
     if(!isAuthenticated) toast.error("Please login then try again !!!")
@@ -50,7 +62,7 @@ const DishCard = ({image,title,description,price}) => {
           disabled={spinner}
           onClick={handleCart} title='click to add item in the cart' className='absolute p-2 rounded-full bg-white text-xl bottom-5 right-3'>
             {
-              spinner ? (<img src={addCartLoader} />) : <FaCartPlus />
+              spinner ? (<img src={addCartLoader} className='w-6 h-6'/>) : <FaCartPlus />
             }
           </button>
         </div>
