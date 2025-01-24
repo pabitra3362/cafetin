@@ -27,8 +27,6 @@ const DishCard = ({image,title,description,price}) => {
       }
     } catch (error) {
       console.log(error);
-    }finally{
-      setSpinner(false);
     }
   }
   
