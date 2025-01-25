@@ -14,7 +14,6 @@ import {
   Pizza,
   Burger,
   Maggies,
-  Drinks,
 } from "../assets/asset";
 
 const Menu = () => {
@@ -29,7 +28,6 @@ const Menu = () => {
     All,
     Coffee,
     Tea,
-    Drinks,
     Momos,
     Frankies,
     Pizza,
@@ -46,6 +44,7 @@ const Menu = () => {
     "Drinks",
     "Momos",
     "Frankies",
+    "Sandwich",
     "Pizza",
     "Burger",
     "Maggies",

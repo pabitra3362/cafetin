@@ -11,7 +11,6 @@ import {
   Pizza,
   Burger,
   Maggies,
-  Drinks,
 } from "../assets/asset";
 import DishCard from "./DishCard";
 
@@ -29,7 +28,6 @@ const Menus = () => {
     Pizza,
     Burger,
     Maggies,
-    Drinks,
   };
 
   const handleCategory = (item) => {
