@@ -221,9 +221,9 @@ export const Fries = [
   },
   {
     src: tandooriFries,
-    title: "Tandoori Fries",
+    title: "Tandoori French Fries",
     description:
-      "Tantalizing crispy fries coated in bold tandoori spices, offering a burst of smoky and savory flavors in every bite.",
+      "Crispy fries smothered in a rich and creamy tandoori sauce, delivering a perfect balance of spicy and savory flavors in every bite.",
     price: 110,
   },
   {
@@ -322,7 +322,7 @@ export const Sandwich = [
     title: "Garlic Bread",
     description:
       "Soft, buttered bread infused with the savory flavor of garlic, toasted to perfection for a delicious and aromatic snack.",
-    price: 60,
+    price: 90,
   },
   {
     src: Csandwich,
@@ -692,9 +692,9 @@ export const All = [
   },
   {
     src: tandooriFries,
-    title: "Tandoori Fries",
+    title: "Tandoori French Fries",
     description:
-      "Tantalizing crispy fries coated in bold tandoori spices, offering a burst of smoky and savory flavors in every bite.",
+      "Crispy fries smothered in a rich and creamy tandoori sauce, delivering a perfect balance of spicy and savory flavors in every bite.",
     price: 110,
   },
   {
@@ -786,7 +786,7 @@ export const All = [
     title: "Garlic Bread",
     description:
       "Soft, buttered bread infused with the savory flavor of garlic, toasted to perfection for a delicious and aromatic snack.",
-    price: 60,
+    price: 90,
   },
   {
     src: Csandwich,
